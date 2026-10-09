@@ -1,0 +1,182 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid transparent;
+  transition:
+    background-color var(--duration-base) var(--ease-out),
+    border-color var(--duration-base) var(--ease-out);
+}
+
+.header[data-scrolled="true"],
+.header[data-open="true"] {
+  background: var(--color-background);
+  border-bottom-color: var(--color-border);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  height: var(--header-height);
+  max-width: calc(var(--container-max) + var(--container-gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--container-gutter);
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+/* Desktop navigation */
+.desktopNav {
+  display: none;
+}
+
+.desktopList {
+  display: flex;
+  gap: var(--space-5);
+}
+
+.desktopLink {
+  position: relative;
+  display: inline-block;
+  padding-block: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.desktopLink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.25rem;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.desktopLink:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Mobile toggle */
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 2.75rem;
+  padding-inline: var(--space-2);
+  margin-right: calc(var(--space-2) * -1);
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.toggleIcon {
+  position: relative;
+  width: 1.25rem;
+  height: 0.5rem;
+}
+
+.toggleIcon::before,
+.toggleIcon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.toggleIcon::before {
+  top: 0;
+}
+
+.toggleIcon::after {
+  bottom: 0;
+}
+
+.header[data-open="true"] .toggleIcon::before {
+  transform: translateY(0.25rem) rotate(45deg);
+}
+
+.header[data-open="true"] .toggleIcon::after {
+  transform: translateY(-0.25rem) rotate(-45deg);
+}
+
+/* Mobile menu panel — `visibility` keeps closed links out of the tab order */
+.mobileNav {
+  position: fixed;
+  inset: var(--header-height) 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space-5) var(--container-gutter) var(--space-6);
+  background: var(--color-background);
+  overflow-y: auto;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-0.5rem);
+  transition:
+    opacity var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out),
+    visibility 0s linear var(--duration-base);
+}
+
+.header[data-open="true"] .mobileNav {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+}
+
+.mobileList {
+  display: grid;
+}
+
+.mobileLink {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  padding-block: var(--space-3);
+  border-bottom: var(--hairline);
+  font-family: var(--font-display);
+  font-size: var(--display-s);
+  line-height: var(--leading-snug);
+}
+
+.mobileIndex {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--color-accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.mobileTagline {
+  margin-top: var(--space-6);
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+}
+
+@media (min-width: 768px) {
+  .desktopNav {
+    display: block;
+  }
+
+  .toggle,
+  .mobileNav {
+    display: none;
+  }
+}
