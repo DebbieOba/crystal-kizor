@@ -1,0 +1,84 @@
+.frame {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background: var(--color-surface);
+}
+
+.image {
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+/* Placeholder plate — reads as a drawing sheet: hairline grid, inset frame,
+   a construction diagonal and a large outlined monogram. */
+.plate {
+  --plate-ink: rgb(26 25 22 / 0.14);
+  display: grid;
+  place-items: center;
+  container-type: inline-size;
+  background-color: var(--plate-tone);
+  background-image:
+    linear-gradient(to top right, transparent calc(50% - 0.5px), var(--plate-ink) 50%, transparent calc(50% + 0.5px)),
+    linear-gradient(var(--plate-ink) 1px, transparent 1px),
+    linear-gradient(90deg, var(--plate-ink) 1px, transparent 1px);
+  background-size:
+    100% 100%,
+    3rem 3rem,
+    3rem 3rem;
+  background-position: center;
+  color: var(--color-text);
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.plate::after {
+  content: "";
+  position: absolute;
+  inset: var(--space-3);
+  border: 1px solid rgb(26 25 22 / 0.28);
+  pointer-events: none;
+}
+
+.clay {
+  --plate-tone: var(--tone-clay);
+}
+.sand {
+  --plate-tone: var(--tone-sand);
+}
+.stone {
+  --plate-tone: var(--tone-stone);
+}
+.olive {
+  --plate-tone: var(--tone-olive);
+}
+.ink {
+  --plate-tone: var(--tone-ink);
+  --plate-ink: rgb(243 239 231 / 0.1);
+  color: var(--color-inverse-text);
+}
+
+.monogram {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 14cqi, 11rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgb(26 25 22 / 0.45);
+  user-select: none;
+}
+
+.ink .monogram {
+  -webkit-text-stroke-color: rgb(243 239 231 / 0.4);
+}
+
+.caption {
+  position: absolute;
+  left: var(--space-4);
+  right: var(--space-4);
+  bottom: var(--space-4);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+}
