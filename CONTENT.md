@@ -2,6 +2,19 @@
 
 What is final, what needs Crystal's sign-off, and what is still required. All copy lives in `data/` unless noted.
 
+## Content matrix
+
+| Section | Visitor question | Content | Action |
+| --- | --- | --- | --- |
+| Hero | Who is Crystal? | Roles, positioning headline, intro, portrait, ecosystem index | Explore the work · Invite Crystal to speak |
+| Positioning | How does it fit together? | "One body of work. Many expressions." + ecosystem map | Jump to any initiative |
+| Ecosystem | What is she building? | Three threads, seven initiatives | Visit / Explore / Enquire about each |
+| Selected work | What has she made? | One lead project + two supporting | More from the initiative |
+| Ideas | What does she think? | Research, writing, media | Discuss research or writing |
+| Speaking | Can I invite her? | Six topics from the brief | Invite Crystal to speak |
+| About | Who is behind this? | Short bio, roles | — |
+| What brings you here? | What do I do next? | Four visitor intents | Collaborate · Speak · Explore · Follow ideas |
+
 ## Needs validation (creative direction, not from the brief)
 
 | Where | Copy |

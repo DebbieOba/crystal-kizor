@@ -4,9 +4,13 @@ A single-page website that acts as the front door to Crystal Kizor's ecosystem �
 
 The page is built to let a first-time visitor answer four questions in seconds: **who is Crystal, what does she do, what is she building, and where should I go next?**
 
+## Problem
+
+Crystal works across architecture, product design, education, speaking, research and community initiatives. Shown side by side, seven brands read like a directory of unrelated businesses. Visitors can't tell who she is, how the pieces connect, or which one is relevant to them.
+
 ## Product thinking
 
-The brief's central risk is seven initiatives reading as seven unrelated businesses. The page answers it with one organising idea:
+The page answers this with one organising idea:
 
 > **One person → three threads → seven expressions.**
 
@@ -30,6 +34,16 @@ That model is introduced as a hairline "ecosystem map" (Positioning), then expan
 | 05 | Speaking | Can I invite her? | Invite Crystal to speak |
 | 06 | About | Who is behind this? | — |
 | 07 | What brings you here? | What do I do next? | Four intent-based routes |
+
+## Design direction
+
+Editorial and architectural rather than "website template":
+
+- **Palette.** Warm paper neutrals and ink, with a single clay accent (earth and material, not decoration). Photography, once supplied, carries the colour.
+- **Type.** Instrument Serif for display headlines, Inter for reading and interface text.
+- **Line and grid.** Hairline rules and drawing-sheet grids instead of shadows, rounded cards or gradients. Layouts are asymmetric, on a deliberate 12-column rhythm.
+- **Rhythm.** Light sections alternate with two dark ones (Speaking, Footer) to pace a long page.
+- **Motion.** A short hero entrance, scroll reveals and small arrow movements; nothing animates for its own sake.
 
 ## Technology
 
@@ -133,6 +147,8 @@ Each event carries only a label and page location, never personal data. Funnel: 
 4. Deploy, then verify metadata, OG preview, robots/sitemap and analytics on the live URL.
 
 ## Before launch
+
+The assessment write-ups (thinking note, AI proposal, analytics scenario) are in [SUBMISSION.md](SUBMISSION.md).
 
 See [CONTENT.md](CONTENT.md) for copy that needs Crystal's sign-off and the full list of required assets, and [RESEARCH.md](RESEARCH.md) for what could and could not be verified.
 
