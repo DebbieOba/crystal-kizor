@@ -1,0 +1,37 @@
+.section {
+  padding-block: var(--section-space);
+  border-top: var(--hairline);
+}
+
+.intents {
+  margin-top: var(--space-8);
+  border-top: 1px solid var(--color-border-strong);
+}
+
+.intent {
+  display: grid;
+  gap: var(--space-3);
+  justify-items: start;
+  padding-block: var(--space-5);
+  border-bottom: var(--hairline);
+  transition: padding var(--duration-base) var(--ease-out);
+}
+
+.prompt {
+  font-family: var(--font-display);
+  font-size: var(--display-s);
+  line-height: var(--leading-snug);
+}
+
+@media (min-width: 768px) {
+  .intent {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--space-6);
+    padding-block: var(--space-6);
+  }
+
+  .intent:hover {
+    padding-left: var(--space-3);
+  }
+}

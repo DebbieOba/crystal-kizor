@@ -1,0 +1,187 @@
+.hero {
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-7);
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-7);
+  align-items: end;
+}
+
+.copy {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.roles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: var(--space-1);
+  color: var(--color-muted);
+}
+
+.roles > span {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Separators trail each role so wrapped lines never start with a dot */
+.roles > span:not(:last-child)::after {
+  content: "";
+  width: 4px;
+  height: 4px;
+  margin-inline: var(--space-3);
+  background: var(--color-accent);
+  border-radius: 50%;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--display-l);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  max-width: 13ch;
+}
+
+.intro {
+  max-width: 34rem;
+  font-size: var(--text-lg);
+  line-height: 1.5;
+  color: var(--color-muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding-top: var(--space-2);
+}
+
+.portrait {
+  aspect-ratio: 4 / 5;
+  max-height: 80svh;
+  width: 100%;
+}
+
+/* Ecosystem index: every expression is one click from the first screen */
+.index {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border-strong);
+}
+
+.indexLabel {
+  color: var(--color-muted);
+}
+
+.indexList {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--space-5);
+  row-gap: var(--space-1);
+  counter-reset: index;
+}
+
+.indexLink {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  padding-block: var(--space-1);
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  line-height: var(--leading-snug);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.indexLink::before {
+  counter-increment: index;
+  content: counter(index, decimal-leading-zero);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--color-accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.indexLink:hover {
+  color: var(--color-accent);
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    padding-top: var(--space-7);
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: var(--space-8);
+  }
+
+  .portrait {
+    max-height: calc(100svh - var(--header-height) - var(--space-10));
+    min-height: 32rem;
+  }
+
+  .index {
+    grid-template-columns: 12rem 1fr;
+    align-items: baseline;
+  }
+}
+
+/* Entrance: a short, staggered settle — never blocks reading */
+@media (prefers-reduced-motion: no-preference) {
+  .copy > *,
+  .portrait {
+    animation: settle var(--duration-slow) var(--ease-out) both;
+  }
+
+  .copy > :nth-child(2) {
+    animation-delay: 80ms;
+  }
+  .copy > :nth-child(3) {
+    animation-delay: 160ms;
+  }
+  .copy > :nth-child(4) {
+    animation-delay: 240ms;
+  }
+  /* The headline is the LCP element: move it, never hide it. */
+  .title {
+    animation-name: rise;
+  }
+  .portrait {
+    animation-name: unveil;
+    animation-duration: 1200ms;
+  }
+}
+
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(1rem);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes unveil {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}

@@ -1,0 +1,68 @@
+.section {
+  padding-block: var(--section-space);
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-7);
+}
+
+.portrait {
+  aspect-ratio: 4 / 5;
+  max-width: 32rem;
+}
+
+.copy {
+  display: grid;
+  gap: var(--space-6);
+  align-content: start;
+}
+
+.bio {
+  display: grid;
+  gap: var(--space-4);
+  justify-items: start;
+  max-width: 38rem;
+  color: var(--color-muted);
+}
+
+.lede {
+  font-size: var(--text-lg);
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.roles {
+  display: grid;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border-strong);
+  color: var(--color-muted);
+}
+
+.roleList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.roleList li {
+  padding: var(--space-1) var(--space-3);
+  border: var(--hairline);
+  border-color: var(--color-muted);
+  border-radius: 999px;
+  font-size: var(--text-sm);
+  color: var(--color-text);
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: var(--space-9);
+    align-items: center;
+  }
+
+  .portrait {
+    max-width: none;
+  }
+}

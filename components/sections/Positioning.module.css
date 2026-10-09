@@ -1,0 +1,129 @@
+.section {
+  padding-block: var(--section-space);
+  border-top: var(--hairline);
+}
+
+.intro {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.lede {
+  max-width: 36rem;
+  font-size: var(--text-lg);
+  line-height: 1.5;
+}
+
+/* Ecosystem map — drawn with hairlines, like a section through a building */
+.map {
+  margin-top: var(--space-8);
+}
+
+.root {
+  position: relative;
+  display: inline-block;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border-strong);
+}
+
+.root::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: -1px;
+  width: 1px;
+  height: var(--space-6);
+  background: var(--color-border-strong);
+}
+
+.threads {
+  display: grid;
+  margin-top: var(--space-6);
+  border-left: 1px solid var(--color-border-strong);
+}
+
+.thread {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: var(--space-3);
+  padding: var(--space-5) 0 var(--space-5) var(--space-5);
+}
+
+.thread::before {
+  content: "";
+  position: absolute;
+  top: calc(var(--space-5) + 0.45rem);
+  left: 0;
+  width: var(--space-3);
+  height: 1px;
+  background: var(--color-border-strong);
+}
+
+.threadIndex {
+  color: var(--color-accent);
+}
+
+.threadTitle {
+  font-family: var(--font-display);
+  font-size: var(--display-s);
+  line-height: var(--leading-snug);
+}
+
+.threadSummary {
+  max-width: 24rem;
+  color: var(--color-muted);
+}
+
+.expressions {
+  display: grid;
+  margin-top: var(--space-2);
+  border-top: var(--hairline);
+}
+
+.expression {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: var(--space-3);
+  border-bottom: var(--hairline);
+  font-weight: 500;
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    padding var(--duration-base) var(--ease-out);
+}
+
+.expression::after {
+  content: "↓";
+  color: var(--color-accent);
+}
+
+.expression:hover {
+  color: var(--color-accent);
+  padding-left: var(--space-2);
+}
+
+@media (min-width: 1024px) {
+  .intro {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    align-items: end;
+    gap: var(--space-8);
+  }
+
+  .threads {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-6);
+    border-left: 0;
+    border-top: 1px solid var(--color-border-strong);
+  }
+
+  .thread {
+    padding: var(--space-6) 0 0;
+  }
+
+  .thread::before {
+    top: 0;
+    width: 1px;
+    height: var(--space-4);
+  }
+}
